@@ -13,12 +13,17 @@ public class Demo {
 		//Establish the Connection
 		Connection con = DriverManager.getConnection(url, username, password);
 		//Create the Statment
-		Statement st = con.createStatement();
-		//Execute the query
-		//Execute Query Only returns the resultset oject but while insert data we have to know how many roes affected so we need to use executeUpdate Methord
-		int count = st.executeUpdate("insert into demo values('2','Ramesh','MBA')");
+		PreparedStatement st = con.prepareStatement("insert into demo values(?,?,?)");
 		
+		st.setInt(1, 3);
+		st.setString(2, "Ranjith");
+		st.setString(3, "MSC");
+		int count = st.executeUpdate();
 		System.out.println(count+" Rows Affected");
+		
+		//Execute the query
+		
+		
 			
 		//Close Connection
 		st.close();
