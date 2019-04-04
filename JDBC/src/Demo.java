@@ -3,12 +3,11 @@ import java.sql.*;
 public class Demo {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
 		
 		String url = "jdbc:mysql://localhost:3306/db_example";
 		String username = "sa";
 		String password = "joker";
-     	//Load and Register the Driver	
+	     	//Load and Register the Driver	
 		Class.forName("com.mysql.jdbc.Driver");
 		//Establish the Connection
 		Connection con = DriverManager.getConnection(url, username, password);
